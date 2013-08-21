@@ -356,7 +356,8 @@ class YouTubeIt
           :videos_watched => entry.at_xpath("yt:statistics")["videoWatchCount"],
           :view_count     => entry.at_xpath("yt:statistics")["viewCount"],
           :upload_views   => entry.at_xpath("yt:statistics")["totalUploadViews"],
-          :insight_uri    => (entry.at_xpath('xmlns:link[@rel="http://gdata.youtube.com/schemas/2007#insight.views"]')['href'] rescue nil)
+          :insight_uri    => (entry.at_xpath('xmlns:link[@rel="http://gdata.youtube.com/schemas/2007#insight.views"]')['href'] rescue nil),
+          :title          => (entry.at_xpath("title").text rescue nil)
         )
       end
     end
